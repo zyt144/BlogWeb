@@ -1,0 +1,19 @@
+.header li{
+	display: inline;
+}
+h2{
+	color: #5C00B8;
+}
+
+.jumbotron h1{
+	color: #5C00B8;
+	font-size:48px;
+	font-family:'Shift',sans-serif;
+	font-weight:bold;
+}
+.jumbotron p {
+	font-size: 20px;
+	color: #A971FF;
+}
+
+

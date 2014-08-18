@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	
+	<channel>
+		<title>Welcome to Blog!</title>
+		<link>http://{{ server_url }}/rss</link>
+		<description>RSS news feed</description>
+
+ 		
+		<item>
+			{% for post in posts %}
+			<title>{{post.title}}</title>
+			<link> </link>
+			<pubDate>{{post.adddate.strftime("%H:%M:%S on %B %d, %Y")}}</pubDate>
+			<description>{{post.body}}
+				        Tags:{{post.tag}} </description>
+			{%endfor%}
+			
+		</item>
+		
+		 
+	</channel>
+	
+</rss>

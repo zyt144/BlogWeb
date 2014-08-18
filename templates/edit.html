@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet'>
+		<link href="http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="container">
+				<ul class="nav nav-tabs">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/create">CreateAPost</a></li>
+					<li><a href="/older">AllPosts</a></li>
+
+					<li><a href="{{login_url}}"> Log In </a></li>
+					<li><a href="{{logout_url}}"> Log Out </a></li>
+					<li><a href="/rss"> RSS </a></li>
+
+
+				</ul>
+			</div>
+		</div>
+		
+		<div class="jumbotron">
+			<div class="container">
+				
+		<h1>Edit Your Post</h1>
+		<form action="/edit" method="post">
+			<label>Subject: </label>
+			<br />
+			<input type="text" name="subject" value="{% for post in posts %}{{post.title}}{%endfor%}"/>
+			<br />
+			<label>Content: </label>
+			<br />
+			<textarea name="content" rows="12" cols="60">{% for post in posts %}{{post.body}}{%endfor%}</textarea>
+			<br />
+			<label>Tags: </label>
+			<input type = "text" name="tags" value="{% for post in posts %}{{post.tag}}{%endfor%}"/><br/>
+			<p>Separate your tags by comma<p>
+			<br />
+			<input type="submit" value="Edit"/>
+		</form> 
+		</div>
+		</div>
+		
+	</body>
+</html>

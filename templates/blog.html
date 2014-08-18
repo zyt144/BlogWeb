@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet'>
+		<link href="http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="container">
+				<ul class="nav nav-tabs">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/create">CreateAPost</a></li>
+					<li><a href="/older">AllPosts</a></li>
+
+					<li><a href="{{login_url}}"> Log In </a></li>
+					<li><a href="{{logout_url}}"> Log Out </a></li>
+					<li><a href="/rss"> RSS </a></li>
+
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="jumbotron">
+			<div class="container">
+
+				<h1>Welcome to Blog!</h1>
+				<p><a href="{{login_url}}">Click to log in!</a></p>
+				<hr />
+				<p>-------------------------------------------------------------------</p>
+				<h3>Tags for search:</h3>
+				<p>{% for post in posts %}{%for t in post.tagli%}<a href="/search?tag={{t}}">{{t}}, {%endfor%}{%endfor%}</a></p>
+				<hr/>
+				<p>-------------------------------------------------------------------</p>
+				<h2>Latest Posts:</h2>
+				<hr />
+				{% for post in posts %}
+				<h3>{{post.title}}</h3>
+				<p>{{post.brief}}<a href="/readmore?subject={{post.title}}&content={{post.body}}&tag={{post.tag}}&time={{post.time}}">Read More</a></p>
+				<!--<p>Tags:<a href="/search?tag={{post.tag}}">{{post.tag}}</a></p> -->
+				<p>Tags:{%for t in post.tagli%}<a href="/search?tag={{t}}">{{t}} {%endfor%}</a></p>
+				<p>Date: {{post.adddate.strftime("%H:%M:%S on %B %d, %Y")}}<p>
+					<img src = {{post.image}} >
+					<br/>
+					<a href="/edit?author={{post.author}}&time={{post.time}}&subject={{post.title}}&content={{post.body}}&tag={{post.tag}}&brief={{post.brief}}">Edit Post</a>
+					{%endfor%}
+					<p>-------------------------------------------------------------------</p>
+					<h3><a href="/older">Click here to see All Posts!</a></h3>
+					<hr />
+
+				</div>
+			</div>
+
+		</body>
+	</html>

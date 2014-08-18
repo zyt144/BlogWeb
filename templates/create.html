@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet'>
+		<link href="http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="container">
+				<ul class="nav nav-tabs">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/create">CreateAPost</a></li>
+					<li><a href="/older">AllPosts</a></li>
+
+					<li><a href="{{login_url}}"> Log In </a></li>
+					<li><a href="{{logout_url}}"> Log Out </a></li>
+					<li><a href="/rss"> RSS </a></li>
+
+
+				</ul>
+			</div>
+		</div>
+		
+		<div class="jumbotron">
+			<div class="container">
+		<h1>Create A New Post</h1>
+		<form action="/create" method="post" enctype="multipart/form-data">
+			<label>Subject: </label>
+			<br />
+			<input type="text" name="subject" />
+			<br />
+			<label>Content: </label>
+			<br />
+			<textarea name="content" rows="12" cols="60"></textarea>
+			<br />
+			<label>Tags: </label>
+			<input type = "text" name="tags" /><br/>
+			<p>Separate your tags by comma<p>
+
+			<br/><br/>
+			Upload Images: <input type="file" name="img"/>
+			<input type ="submit" value="upload"/>
+			<br/>
+			<h2><input type="submit" value="Create"/></h2>
+		</form> 
+		
+		
+			</div>
+		</div>
+		
+	</body>
+</html>
